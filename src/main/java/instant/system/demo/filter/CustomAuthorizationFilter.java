@@ -31,11 +31,7 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
     private static final Logger LOGGER = LoggerFactory.getLogger(ParkingApiController.class);
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        if(httpServletRequest.getServletPath().equals("/api/v1/login") || httpServletRequest.getServletPath().equals("/api/v1/token/refreshtoken"))
-        {
-            filterChain.doFilter(httpServletRequest, httpServletResponse);
-        }
-        else
+        if(!httpServletRequest.getServletPath().equals("/api/v1/login") && !httpServletRequest.getServletPath().equals("/api/v1/token/refreshtoken"))
         {
             String authorizationHeader = httpServletRequest.getHeader(AUTHORIZATION);
             if(authorizationHeader != null && authorizationHeader.startsWith("Bearer "))
@@ -68,10 +64,7 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
 
                 }
 
-            } else {
-                filterChain.doFilter(httpServletRequest, httpServletResponse);
             }
-
         }
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
