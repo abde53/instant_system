@@ -50,6 +50,17 @@ Afin de démarrer correctement le programme, vous devez modifier les paramètres
 <br/>
 ![Texte alternatif](img/main.png "la classe DemoApplication")
 Concernant la migration des données, elle est déjà prise en charge au sein de la classe "DemoApplication".
+<br/>
+Vous devez vous authentifier avant d'exploiter les fonctionnalités,
+<br/>
+url of login : localgost:8080/api/v1/login
+<br/>
+username : abde53
+<br/>
+password : password
+<br/>
+Ensuite vous devez ajouter au header <br/>
+Authorization : Bearer ${token}
 # 3. Résultats
 API Post qui permet de retourner les parking à proximité, accepte les paramètres suivantes:
 <ul>

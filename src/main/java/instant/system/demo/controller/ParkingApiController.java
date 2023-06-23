@@ -4,6 +4,7 @@ import instant.system.demo.exception.NoNearbyParkingFoundException;
 import instant.system.demo.model.Parking;
 import instant.system.demo.model.ParkingApi;
 import instant.system.demo.service.ParkingApiService;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,8 +33,9 @@ public class ParkingApiController {
 
     // Post pour récuperer les parking à proximité
     @PostMapping("/nearby")
-    public List<Parking> getNearbyParkings(@RequestParam("latitude") double latitude, @RequestParam("longitude") double longitude,
-                                           @RequestParam("proximity") int proximity, @RequestParam("city") String city) {
+    @ApiOperation(value = "Get all neurby parking based on current user position", response = Parking.class,notes = "Returns list of parkings")
+    public List<Parking> getNearbyParkings(@PathVariable(value = "latitude of user") @RequestParam("latitude") double latitude,@PathVariable(value = "longitude of user") @RequestParam("longitude") double longitude,
+                                           @PathVariable(value = "rayonne of proximity in meter") @RequestParam("proximity") int proximity, @PathVariable(value = "city name") @RequestParam("city") String city) {
         LOGGER.info("inside getNearbyParkings latitude : "+ latitude+", longitude : "+longitude);
         List<Parking> lp = parkingApiService.getNearbyParkings(latitude, longitude, proximity, city);
         if(lp.isEmpty())

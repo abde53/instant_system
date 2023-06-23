@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiModel;
 
 // class parking
 @Getter
@@ -14,7 +16,9 @@ import javax.validation.constraints.NotBlank;
 @EqualsAndHashCode
 @Entity
 @Table
+@ApiModel(description = "model of parking class")
 public class Parking {
+    @ApiModelProperty(notes = "Id of parking",name="id",required=true,value="1")
     @Id
     @SequenceGenerator(
             name = "parking_sequence",
@@ -25,16 +29,23 @@ public class Parking {
             generator = "parking_sequence",
             strategy = GenerationType.SEQUENCE)
     private Long id;
+    @ApiModelProperty(notes = "name of parking",name="name",required=true,value="parking centre ville")
     @NotBlank
     @Column(nullable = false)
     private String name;
+    @ApiModelProperty(notes = "capacity of parking",name="capacity",required=true,value="53")
     @Column(nullable = false)
     private String capacity;
+    @ApiModelProperty(notes = "le nombre de places disponibles",name="available_place",required=true,value="40")
     @Column(nullable = false)
     private String available_place;
+    @ApiModelProperty(notes = "La distance entre le parking et l'emplacement actuel de l'utilisateur qui a envoyé la requête POST.",name="distance",required=true,value="40")
     @Column(nullable = false)
     private String distance;
+
+    @ApiModelProperty(notes = "GPS Coordinate.",name="latitude",required=true,value="40.2545648")
     private String latitude;
+    @ApiModelProperty(notes = "GPS Coordinate.",name="longitude",required=true,value="02.2554648")
     private String longitude;
 
 
