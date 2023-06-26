@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.List;
 
 @Configuration
-public class ParkingApiDataStructureConfig {
+public class DataMigrationConfig {
 
     @Bean
     PasswordEncoder passwordEncoder()

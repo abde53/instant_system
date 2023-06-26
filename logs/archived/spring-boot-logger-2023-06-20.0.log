@@ -577,7 +577,7 @@ Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: coul
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
 	at instant.system.demo.service.UserService$$EnhancerBySpringCGLIB$$73d768b.saveUser(<generated>)
-	at instant.system.demo.config.ParkingApiDataStructureConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
+	at instant.system.demo.config.DataMigrationConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:804)
 	... 5 common frames omitted
 Caused by: org.hibernate.exception.SQLGrammarException: could not execute statement
@@ -1061,7 +1061,7 @@ Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: coul
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
 	at instant.system.demo.service.UserService$$EnhancerBySpringCGLIB$$f75b5b7b.saveUser(<generated>)
-	at instant.system.demo.config.ParkingApiDataStructureConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
+	at instant.system.demo.config.DataMigrationConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:804)
 	... 5 common frames omitted
 Caused by: org.hibernate.exception.SQLGrammarException: could not execute statement
@@ -1545,7 +1545,7 @@ Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: coul
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
 	at instant.system.demo.service.UserService$$EnhancerBySpringCGLIB$$ec3fd6db.saveUser(<generated>)
-	at instant.system.demo.config.ParkingApiDataStructureConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
+	at instant.system.demo.config.DataMigrationConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:804)
 	... 5 common frames omitted
 Caused by: org.hibernate.exception.SQLGrammarException: could not execute statement
@@ -2029,7 +2029,7 @@ Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: coul
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
 	at instant.system.demo.service.UserService$$EnhancerBySpringCGLIB$$de9cf51c.saveUser(<generated>)
-	at instant.system.demo.config.ParkingApiDataStructureConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
+	at instant.system.demo.config.DataMigrationConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:804)
 	... 5 common frames omitted
 Caused by: org.hibernate.exception.SQLGrammarException: could not execute statement
@@ -2525,7 +2525,7 @@ Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: coul
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
 	at instant.system.demo.service.UserService$$EnhancerBySpringCGLIB$$c4758b17.saveUser(<generated>)
-	at instant.system.demo.config.ParkingApiDataStructureConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
+	at instant.system.demo.config.DataMigrationConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:804)
 	... 5 common frames omitted
 Caused by: org.hibernate.exception.SQLGrammarException: could not execute statement
@@ -3044,7 +3044,7 @@ Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: coul
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
 	at instant.system.demo.service.UserService$$EnhancerBySpringCGLIB$$bfc0a71.saveUser(<generated>)
-	at instant.system.demo.config.ParkingApiDataStructureConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
+	at instant.system.demo.config.DataMigrationConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:804)
 	... 5 common frames omitted
 Caused by: org.hibernate.exception.SQLGrammarException: could not execute statement
@@ -3368,7 +3368,7 @@ Caused by: java.lang.NullPointerException: Cannot invoke "instant.system.demo.mo
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
 	at instant.system.demo.service.UserService$$EnhancerBySpringCGLIB$$ec3fd6db.addRoleToUser(<generated>)
-	at instant.system.demo.config.ParkingApiDataStructureConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:48)
+	at instant.system.demo.config.DataMigrationConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:48)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:804)
 	... 5 common frames omitted
 2023-06-20 19:37:44,150 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Shutting down ExecutorService 'applicationTaskExecutor'
@@ -4048,7 +4048,7 @@ Caused by: org.springframework.dao.InvalidDataAccessResourceUsageException: coul
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
 	at instant.system.demo.service.UserService$$EnhancerBySpringCGLIB$$60a03593.saveUser(<generated>)
-	at instant.system.demo.config.ParkingApiDataStructureConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
+	at instant.system.demo.config.DataMigrationConfig.lambda$commandLineRunner$0(ParkingApiDataStructureConfig.java:44)
 	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:804)
 	... 5 common frames omitted
 Caused by: org.hibernate.exception.SQLGrammarException: could not execute statement
