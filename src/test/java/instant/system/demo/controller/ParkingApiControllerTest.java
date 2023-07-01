@@ -1,5 +1,6 @@
 package instant.system.demo.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import instant.system.demo.model.Parking;
 import instant.system.demo.model.ParkingApi;
 import instant.system.demo.service.ParkingApiService;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -30,11 +32,14 @@ class ParkingApiControllerTest {
     @InjectMocks
     private ParkingApiController parkingApiController;
 
+    ObjectMapper objectMapper;
+
     @BeforeEach
     public void setUp()
     {
         MockitoAnnotations.openMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(parkingApiController).build();
+        objectMapper = new ObjectMapper();
     }
     @Test
     void getAllParkingApi() throws Exception {
@@ -76,9 +81,12 @@ class ParkingApiControllerTest {
                 "Poitiers",
                 "records"
         );
+
+        String content = objectMapper.writeValueAsString(pa1);
+
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/parkingApi")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"url\":\"https://data.grandpoitiers.fr/api/records/1.0/search/?dataset=mobilites-stationnement-des-parkings-en-temps-reel&facet=nom\",\"city\":\"Poitiers\",\"rootNode\":\"records\"}"))
+                        .content(content))
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
         verify(parkingApiService, times(1)).addParkingApi(pa1);
