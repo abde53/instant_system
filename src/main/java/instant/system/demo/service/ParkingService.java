@@ -19,5 +19,4 @@ public class ParkingService {
         parkingRepository.save(p);
     }
 
-
 }

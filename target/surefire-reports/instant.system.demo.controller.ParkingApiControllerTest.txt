@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: instant.system.demo.controller.ParkingApiControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.677 s <<< FAILURE! - in instant.system.demo.controller.ParkingApiControllerTest
+addParking  Time elapsed: 0.075 s  <<< ERROR!
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "instant.system.demo.dto.ParkingApiMapper.toEntity(instant.system.demo.dto.ParkingApiDto)" because "this.parkingApiMapper" is null
+	at instant.system.demo.controller.ParkingApiControllerTest.addParking(ParkingApiControllerTest.java:88)
+Caused by: java.lang.NullPointerException: Cannot invoke "instant.system.demo.dto.ParkingApiMapper.toEntity(instant.system.demo.dto.ParkingApiDto)" because "this.parkingApiMapper" is null
+	at instant.system.demo.controller.ParkingApiControllerTest.addParking(ParkingApiControllerTest.java:88)
+

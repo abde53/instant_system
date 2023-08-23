@@ -42,12 +42,20 @@ public class UserService implements UserDetailsService {
         return roleRepository.save(r);
     }
 
-    public void addRoleToUser(String un, String r)
+    public boolean addRoleToUser(String un, String r)
     {
         User u = userRepository.findByUsername(un);
         Role role = roleRepository.findByName(r);
-        LOGGER.info("add role {}, to user {}", un, r);
-        u.getRoles().add(role);
+        if(u!= null && role != null)
+        {
+            LOGGER.info("add role {}, to user {}", un, r);
+            u.getRoles().add(role);
+            return true;
+        } else {
+            LOGGER.error("Cannot find role {} or user {}", role, u);
+            return false;
+        }
+
         // we dont need to save u again because we have @Transactional
     }
     public List<User> getUsers()
@@ -67,13 +75,19 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String un) throws UsernameNotFoundException {
         User u = userRepository.findByUsername(un);
         if(u == null)
+        {
             LOGGER.warn("User not found {}", un);
+            throw new UsernameNotFoundException("No User has been found for"+ un);
+        }
         else
+        {
             LOGGER.info("User found {}", un);
-        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        u.getRoles().forEach(role ->
-        {authorities.add(new SimpleGrantedAuthority(role.getName()));
-        });
-        return new org.springframework.security.core.userdetails.User(u.getUsername(), u.getPassword(), authorities);
+            Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+            u.getRoles().forEach(role ->
+            {authorities.add(new SimpleGrantedAuthority(role.getName()));
+            });
+            return new org.springframework.security.core.userdetails.User(u.getUsername(), u.getPassword(), authorities);
+        }
+
     }
 }

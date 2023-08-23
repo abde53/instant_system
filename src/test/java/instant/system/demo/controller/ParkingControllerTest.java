@@ -1,5 +1,6 @@
 package instant.system.demo.controller;
 
+import instant.system.demo.controller.ParkingController;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

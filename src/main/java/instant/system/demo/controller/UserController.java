@@ -5,6 +5,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import instant.system.demo.exception.RefreshTokenIsMissedException;
 import instant.system.demo.model.Role;
 import instant.system.demo.model.User;
 import instant.system.demo.service.UserService;
@@ -38,10 +39,9 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/user/users")
-    public ResponseEntity<List<User>> getUsers()
+    public List<User> getUsers()
     {
-        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/v1/user/users").toUriString());
-        return ResponseEntity.created(uri).body(userService.getUsers());
+        return userService.getUsers();
     }
 
     @PostMapping("/user/save")
@@ -59,10 +59,13 @@ public class UserController {
     }
 
     @PostMapping("/role/addroletouser")
-    public ResponseEntity<?> addroletouser(@RequestParam String username, @RequestParam String roleName)
+    public ResponseEntity addroletouser(@RequestParam String username, @RequestParam String roleName)
     {
-        userService.addRoleToUser(username, roleName);
-        return ResponseEntity.ok().build();
+        boolean isAdded = userService.addRoleToUser(username, roleName);
+        if (isAdded)
+            return ResponseEntity.ok().build();
+        else
+            return ResponseEntity.badRequest().build();
     }
 
     @GetMapping("/token/refreshtoken")
@@ -98,7 +101,7 @@ public class UserController {
 
             }
         } else {
-            throw new RuntimeException("Refresh token is missed");
+            throw new RefreshTokenIsMissedException("Refresh token is missed");
         }
     }
 }

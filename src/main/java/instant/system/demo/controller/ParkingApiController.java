@@ -1,5 +1,7 @@
 package instant.system.demo.controller;
 
+import instant.system.demo.dto.ParkingApiDto;
+import instant.system.demo.dto.ParkingApiMapper;
 import instant.system.demo.exception.NoNearbyParkingFoundException;
 import instant.system.demo.model.Parking;
 import instant.system.demo.model.ParkingApi;
@@ -19,6 +21,7 @@ import java.util.List;
 public class ParkingApiController {
     private final ParkingApiService parkingApiService;
     private static final Logger LOGGER = LoggerFactory.getLogger(ParkingApiController.class);
+    private final ParkingApiMapper parkingApiMapper; // Inject the mapper
 
     @GetMapping
     public List<ParkingApi> getAllParkingApi() {
@@ -27,8 +30,9 @@ public class ParkingApiController {
     }
 
     @PostMapping
-    public void addParking(@Valid @RequestBody ParkingApi p) {
-        parkingApiService.addParkingApi(p);
+    public void addParking(@Valid @RequestBody ParkingApiDto p) {
+        ParkingApi parkingApi = parkingApiMapper.toEntity(p);
+        parkingApiService.addParkingApi(parkingApi);
     }
 
     // Post pour récuperer les parking à proximité
@@ -36,7 +40,7 @@ public class ParkingApiController {
     @ApiOperation(value = "Get all neurby parking based on current user position", response = Parking.class,notes = "Returns list of parkings")
     public List<Parking> getNearbyParkings(@PathVariable(value = "latitude of user") @RequestParam("latitude") double latitude,@PathVariable(value = "longitude of user") @RequestParam("longitude") double longitude,
                                            @PathVariable(value = "rayonne of proximity in meter") @RequestParam("proximity") int proximity, @PathVariable(value = "city name") @RequestParam("city") String city) {
-        LOGGER.info("inside getNearbyParkings latitude : "+ latitude+", longitude : "+longitude);
+        LOGGER.info("inside getNearbyParkings latitude : {}, longitude : {}", latitude, longitude);
         List<Parking> lp = parkingApiService.getNearbyParkings(latitude, longitude, proximity, city);
         if(lp.isEmpty())
             throw new NoNearbyParkingFoundException("No parking found");

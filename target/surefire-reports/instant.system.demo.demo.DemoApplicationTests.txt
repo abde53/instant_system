@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: instant.system.demo.demo.DemoApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 6.471 s <<< FAILURE! - in instant.system.demo.demo.DemoApplicationTests
+contextLoads  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'parkingApiController' defined in file [/home/makdad/Desktop/SpringBoot/instant_system/target/classes/instant/system/demo/controller/ParkingApiController.class]: Unsatisfied dependency expressed through constructor parameter 1; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'instant.system.demo.dto.ParkingApiMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'instant.system.demo.dto.ParkingApiMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+

@@ -21,13 +21,11 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException
     {
         final String authHeader = httpServletRequest.getHeader(AUTHORIZATION);
-        final String userEmail;
-        final  String jwtToken;
 
         if(authHeader == null || !authHeader.startsWith("Bearer"))
         {
             filterChain.doFilter(httpServletRequest, httpServletResponse);
-            return;
+
         }
 
     }
